@@ -34,7 +34,6 @@
             this.txtMail = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.txtDni = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,9 +43,10 @@
             this.dgvAutos = new System.Windows.Forms.DataGridView();
             this.gpbAutos = new System.Windows.Forms.GroupBox();
             this.gpbReserva = new System.Windows.Forms.GroupBox();
-            this.txtImporte = new System.Windows.Forms.TextBox();
-            this.txtDevolucion = new System.Windows.Forms.TextBox();
-            this.txtFechaReserva = new System.Windows.Forms.TextBox();
+            this.mtbImporte = new System.Windows.Forms.MaskedTextBox();
+            this.dtpReserva = new System.Windows.Forms.DateTimePicker();
+            this.dtpDevolucion = new System.Windows.Forms.DateTimePicker();
+            this.cmbSeguro = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -73,7 +73,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
-            this.cmbSeguro = new System.Windows.Forms.ComboBox();
+            this.mtbDni = new System.Windows.Forms.MaskedTextBox();
             this.grbClinte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAutos)).BeginInit();
             this.gpbAutos.SuspendLayout();
@@ -88,12 +88,12 @@
             // 
             // grbClinte
             // 
+            this.grbClinte.Controls.Add(this.mtbDni);
             this.grbClinte.Controls.Add(this.BtnCancelarCliente);
             this.grbClinte.Controls.Add(this.btnRegistrarCliente);
             this.grbClinte.Controls.Add(this.txtMail);
             this.grbClinte.Controls.Add(this.txtDireccion);
             this.grbClinte.Controls.Add(this.txtTelefono);
-            this.grbClinte.Controls.Add(this.txtDni);
             this.grbClinte.Controls.Add(this.txtNombre);
             this.grbClinte.Controls.Add(this.label5);
             this.grbClinte.Controls.Add(this.label4);
@@ -109,7 +109,7 @@
             // 
             // BtnCancelarCliente
             // 
-            this.BtnCancelarCliente.Location = new System.Drawing.Point(187, 147);
+            this.BtnCancelarCliente.Location = new System.Drawing.Point(163, 147);
             this.BtnCancelarCliente.Name = "BtnCancelarCliente";
             this.BtnCancelarCliente.Size = new System.Drawing.Size(75, 23);
             this.BtnCancelarCliente.TabIndex = 11;
@@ -118,7 +118,7 @@
             // 
             // btnRegistrarCliente
             // 
-            this.btnRegistrarCliente.Location = new System.Drawing.Point(412, 147);
+            this.btnRegistrarCliente.Location = new System.Drawing.Point(423, 147);
             this.btnRegistrarCliente.Name = "btnRegistrarCliente";
             this.btnRegistrarCliente.Size = new System.Drawing.Size(75, 23);
             this.btnRegistrarCliente.TabIndex = 10;
@@ -146,13 +146,6 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(258, 20);
             this.txtTelefono.TabIndex = 7;
-            // 
-            // txtDni
-            // 
-            this.txtDni.Location = new System.Drawing.Point(163, 47);
-            this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(180, 20);
-            this.txtDni.TabIndex = 6;
             // 
             // txtNombre
             // 
@@ -234,10 +227,10 @@
             // 
             // gpbReserva
             // 
+            this.gpbReserva.Controls.Add(this.mtbImporte);
+            this.gpbReserva.Controls.Add(this.dtpReserva);
+            this.gpbReserva.Controls.Add(this.dtpDevolucion);
             this.gpbReserva.Controls.Add(this.cmbSeguro);
-            this.gpbReserva.Controls.Add(this.txtImporte);
-            this.gpbReserva.Controls.Add(this.txtDevolucion);
-            this.gpbReserva.Controls.Add(this.txtFechaReserva);
             this.gpbReserva.Controls.Add(this.label9);
             this.gpbReserva.Controls.Add(this.label8);
             this.gpbReserva.Controls.Add(this.label7);
@@ -249,26 +242,42 @@
             this.gpbReserva.TabStop = false;
             this.gpbReserva.Text = "Detalles de Reserva";
             // 
-            // txtImporte
+            // mtbImporte
             // 
-            this.txtImporte.Location = new System.Drawing.Point(472, 69);
-            this.txtImporte.Name = "txtImporte";
-            this.txtImporte.Size = new System.Drawing.Size(180, 20);
-            this.txtImporte.TabIndex = 10;
+            this.mtbImporte.Location = new System.Drawing.Point(508, 69);
+            this.mtbImporte.Mask = "$";
+            this.mtbImporte.Name = "mtbImporte";
+            this.mtbImporte.Size = new System.Drawing.Size(144, 20);
+            this.mtbImporte.TabIndex = 7;
             // 
-            // txtDevolucion
+            // dtpReserva
             // 
-            this.txtDevolucion.Location = new System.Drawing.Point(128, 62);
-            this.txtDevolucion.Name = "txtDevolucion";
-            this.txtDevolucion.Size = new System.Drawing.Size(180, 20);
-            this.txtDevolucion.TabIndex = 8;
+            this.dtpReserva.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpReserva.Location = new System.Drawing.Point(128, 23);
+            this.dtpReserva.Name = "dtpReserva";
+            this.dtpReserva.Size = new System.Drawing.Size(200, 20);
+            this.dtpReserva.TabIndex = 11;
             // 
-            // txtFechaReserva
+            // dtpDevolucion
             // 
-            this.txtFechaReserva.Location = new System.Drawing.Point(126, 22);
-            this.txtFechaReserva.Name = "txtFechaReserva";
-            this.txtFechaReserva.Size = new System.Drawing.Size(180, 20);
-            this.txtFechaReserva.TabIndex = 7;
+            this.dtpDevolucion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDevolucion.Location = new System.Drawing.Point(128, 63);
+            this.dtpDevolucion.Name = "dtpDevolucion";
+            this.dtpDevolucion.Size = new System.Drawing.Size(200, 20);
+            this.dtpDevolucion.TabIndex = 7;
+            // 
+            // cmbSeguro
+            // 
+            this.cmbSeguro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSeguro.FormattingEnabled = true;
+            this.cmbSeguro.Items.AddRange(new object[] {
+            "Total",
+            "Contra Terceros",
+            "No tiene"});
+            this.cmbSeguro.Location = new System.Drawing.Point(508, 26);
+            this.cmbSeguro.Name = "cmbSeguro";
+            this.cmbSeguro.Size = new System.Drawing.Size(144, 21);
+            this.cmbSeguro.TabIndex = 7;
             // 
             // label9
             // 
@@ -382,6 +391,7 @@
             // 
             // cmbEstado
             // 
+            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstado.FormattingEnabled = true;
             this.cmbEstado.Items.AddRange(new object[] {
             "Excelente",
@@ -417,6 +427,7 @@
             this.txtKilometraje.Name = "txtKilometraje";
             this.txtKilometraje.Size = new System.Drawing.Size(255, 20);
             this.txtKilometraje.TabIndex = 9;
+            this.txtKilometraje.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKilometraje_KeyPress);
             // 
             // txtPatente
             // 
@@ -431,13 +442,15 @@
             this.txtAño.Name = "txtAño";
             this.txtAño.Size = new System.Drawing.Size(258, 20);
             this.txtAño.TabIndex = 7;
+            this.txtAño.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAño_KeyPress);
             // 
             // txtModelo
             // 
-            this.txtModelo.Location = new System.Drawing.Point(163, 47);
+            this.txtModelo.Location = new System.Drawing.Point(85, 47);
             this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(180, 20);
+            this.txtModelo.Size = new System.Drawing.Size(258, 20);
             this.txtModelo.TabIndex = 6;
+            this.txtModelo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtModelo_KeyPress);
             // 
             // txtMarca
             // 
@@ -532,17 +545,13 @@
             this.dgvClientes.Size = new System.Drawing.Size(603, 116);
             this.dgvClientes.TabIndex = 1;
             // 
-            // cmbSeguro
+            // mtbDni
             // 
-            this.cmbSeguro.FormattingEnabled = true;
-            this.cmbSeguro.Items.AddRange(new object[] {
-            "Total",
-            "Contra Terceros",
-            "No tiene"});
-            this.cmbSeguro.Location = new System.Drawing.Point(508, 26);
-            this.cmbSeguro.Name = "cmbSeguro";
-            this.cmbSeguro.Size = new System.Drawing.Size(144, 21);
-            this.cmbSeguro.TabIndex = 7;
+            this.mtbDni.Location = new System.Drawing.Point(208, 44);
+            this.mtbDni.Mask = "00.000.000";
+            this.mtbDni.Name = "mtbDni";
+            this.mtbDni.Size = new System.Drawing.Size(135, 20);
+            this.mtbDni.TabIndex = 12;
             // 
             // frmPrincipal
             // 
@@ -584,13 +593,9 @@
         private System.Windows.Forms.TextBox txtMail;
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.TextBox txtTelefono;
-        private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtImporte;
-        private System.Windows.Forms.TextBox txtDevolucion;
-        private System.Windows.Forms.TextBox txtFechaReserva;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -618,5 +623,9 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.ComboBox cmbSeguro;
+        private System.Windows.Forms.DateTimePicker dtpDevolucion;
+        private System.Windows.Forms.DateTimePicker dtpReserva;
+        private System.Windows.Forms.MaskedTextBox mtbImporte;
+        private System.Windows.Forms.MaskedTextBox mtbDni;
     }
 }

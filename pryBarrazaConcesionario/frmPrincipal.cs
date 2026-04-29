@@ -77,6 +77,8 @@ namespace pryBarrazaConcesionario
 
                 // 3. Llamar a tu método de guardado pasando estos datos
                 GuardarEnBaseDeDatos(idSelecVehiculo , idSelecCliente);
+                cmbEstado.SelectedIndex = -1;
+                
             }
             else
             {
@@ -95,10 +97,10 @@ namespace pryBarrazaConcesionario
                 try
                 {
                     cmd.Parameters.AddWithValue("@idVehiculo", idSelecVehiculo);
-                    cmd.Parameters.AddWithValue("@fechaReserva", txtFechaReserva.Text);
-                    cmd.Parameters.AddWithValue("@fechaDevoluicion", txtDevolucion.Text);
+                    cmd.Parameters.AddWithValue("@fechaReserva", dtpReserva.Text);
+                    cmd.Parameters.AddWithValue("@fechaDevoluicion", dtpDevolucion.Text);
                     cmd.Parameters.AddWithValue("@Seguro", cmbSeguro.Text);
-                    cmd.Parameters.AddWithValue("@importe", txtImporte.Text);
+                    cmd.Parameters.AddWithValue("@importe", mtbImporte.Text);
                     cmd.Parameters.AddWithValue("@idCliente", idSelecCliente);
                     cmd.ExecuteNonQuery();
 
@@ -136,12 +138,11 @@ namespace pryBarrazaConcesionario
                     cmd2.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
                     cmd2.Parameters.AddWithValue("@Mail", txtMail.Text);
                     cmd2.Parameters.AddWithValue("@direccion", txtDireccion.Text);
-                    cmd2.Parameters.AddWithValue("@dni", txtDni.Text);
+                    cmd2.Parameters.AddWithValue("@dni", mtbDni.Text);
                     txtNombre.Text = "";
                     txtTelefono.Text = "";
                     txtMail.Text = "";
                     txtDireccion.Text = "";
-                    txtDni.Text = "";
                     cmd2.ExecuteNonQuery();
 
                     MessageBox.Show("Cliente Registrado con éxito");
@@ -181,6 +182,7 @@ namespace pryBarrazaConcesionario
                     txtModelo.Text = "";
                     txtPatente.Text = "";
                     txtKilometraje.Text = "";
+                    cmbEstado.SelectedIndex = -1;
 
                     MessageBox.Show("Vehiculo Registrado con éxito");
                 }
@@ -193,6 +195,22 @@ namespace pryBarrazaConcesionario
                 {
                     objetoConeccionBaseDatos.conectorBaseDatos.Close();
                 }
+        }
+        
+        private void txtKilometraje_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            clsValidacion.SoloNumeros(e);
+        }
+
+        private void txtModelo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+
+        private void txtAño_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            clsValidacion.SoloNumeros(e);
         }
     }
 }
