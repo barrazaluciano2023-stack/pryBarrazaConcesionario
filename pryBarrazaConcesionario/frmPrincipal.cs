@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace pryBarrazaConcesionario
 {
-    public partial class frmPrincipal : Form
+    public partial class Concesionaria : Form
     {
-        public frmPrincipal()
+        public Concesionaria()
         {
             InitializeComponent();
         }
@@ -92,62 +92,34 @@ namespace pryBarrazaConcesionario
                 }
             }
         }
-
-
         private void btnCargar_Click(object sender, EventArgs e)
         {
             if (dgvAutos.CurrentRow != null && dgvClientes.CurrentRow != null)
             {
-                // 2. Obtener los datos de las celdas (usa el nombre de la columna o el índice)
-                int idSelecVehiculo = Convert.ToInt32(dgvAutos.CurrentRow.Cells["idVehiculo"].Value);
-                int idSelecCliente = Convert.ToInt32(dgvClientes.CurrentRow.Cells["idCliente"].Value);
+                int idSelecVehiculo = Convert.ToInt32(
+                    dgvAutos.CurrentRow.Cells["idVehiculo"].Value);
 
-                // 3. Llamar a tu método de guardado pasando estos datos
-                GuardarEnBaseDeDatos(idSelecVehiculo , idSelecCliente);
+                int idSelecCliente = Convert.ToInt32(
+                    dgvClientes.CurrentRow.Cells["idCliente"].Value);
+
+                CConexion objetoConexion = new CConexion();
+
+                objetoConexion.cargarReserva(
+                    idSelecVehiculo,
+                    dtpReserva.Value,
+                    dtpDevolucion.Value,
+                    cmbSeguro.Text,
+                    mtbImporte.Text,
+                    idSelecCliente
+                );
+
                 cmbEstado.SelectedIndex = -1;
-                
+                cmbSeguro.SelectedIndex = -1;
             }
             else
             {
                 MessageBox.Show("Por favor, selecciona un vehiculo y cliente.");
             }
-        }
-        public void GuardarEnBaseDeDatos(int idSelecVehiculo, int idSelecCliente)
-        {
-            CConexion objetoConeccionBaseDatos = new CConexion();
-            objetoConeccionBaseDatos.ConectarBaseDatos();
-            string query = "INSERT INTO Reserva (idVehiculo,fechaReserva, fechaDevolucion,Seguro,importe,idCliente) VALUES (?, ?, ?, ? ,?,?)";
-            
-
-
-            using (OleDbCommand cmd = new OleDbCommand(query, objetoConeccionBaseDatos.conectorBaseDatos))
-                try
-                {
-                    cmd.Parameters.AddWithValue("@idVehiculo", idSelecVehiculo);
-                    cmd.Parameters.AddWithValue("@fechaReserva", dtpReserva.Text);
-                    cmd.Parameters.AddWithValue("@fechaDevoluicion", dtpDevolucion.Text);
-                    cmd.Parameters.AddWithValue("@Seguro", cmbSeguro.Text);
-                    cmd.Parameters.AddWithValue("@importe", mtbImporte.Text);
-                    cmd.Parameters.AddWithValue("@idCliente", idSelecCliente);
-                    cmd.ExecuteNonQuery();
-
-                    MessageBox.Show("Reserva guardada con éxito");
-
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al ejecutar comando: " + ex.Message);
-                }
-                // cerrar la conexión al terminar
-                finally
-                {
-                    objetoConeccionBaseDatos.conectorBaseDatos.Close();
-                }
-            
-
-
-
         }
 
 

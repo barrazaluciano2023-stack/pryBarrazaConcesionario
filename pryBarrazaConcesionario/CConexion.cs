@@ -85,5 +85,36 @@ namespace pryBarrazaConcesionario
                 }
             }
         }
+        public void cargarReserva(int idVehiculo,DateTime fechaReserva, DateTime fechaDevolucion,string seguro,string importe,int idCliente)
+        {
+            ConectarBaseDatos();
+
+            string query = "INSERT INTO Reserva " +"(idVehiculo, fechaReserva, fechaDevolucion, Seguro, importe, idCliente) " + "VALUES (?, ?, ?, ?, ?, ?)";
+
+            using (OleDbCommand cmd = new OleDbCommand(query, conectorBaseDatos))
+            {
+                try
+                {
+                    cmd.Parameters.AddWithValue("@idVehiculo", idVehiculo);
+                    cmd.Parameters.AddWithValue("@fechaReserva", fechaReserva);
+                    cmd.Parameters.AddWithValue("@fechaDevolucion", fechaDevolucion);
+                    cmd.Parameters.AddWithValue("@Seguro", seguro);
+                    cmd.Parameters.AddWithValue("@importe", importe);
+                    cmd.Parameters.AddWithValue("@idCliente", idCliente);
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Reserva guardada con éxito");
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al ejecutar comando: " + ex.Message);
+                }
+                finally
+                {
+                    conectorBaseDatos.Close();
+                }
+            }
+        }
     }
 }

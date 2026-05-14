@@ -1,6 +1,6 @@
 ﻿namespace pryBarrazaConcesionario
 {
-    partial class frmPrincipal
+    partial class Concesionaria
     {
         /// <summary>
         /// Required designer variable.
@@ -28,22 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Concesionaria));
             this.dgvAutos = new System.Windows.Forms.DataGridView();
             this.gpbAutos = new System.Windows.Forms.GroupBox();
             this.gpbReserva = new System.Windows.Forms.GroupBox();
             this.mtbImporte = new System.Windows.Forms.MaskedTextBox();
             this.dtpReserva = new System.Windows.Forms.DateTimePicker();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.dtpDevolucion = new System.Windows.Forms.DateTimePicker();
             this.cmbSeguro = new System.Windows.Forms.ComboBox();
+            this.btnCargarReserva = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnCargarReserva = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tbcPrincipal = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grbAuto = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
             this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -58,11 +59,9 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.grbClinte = new System.Windows.Forms.GroupBox();
+            this.txtDni = new System.Windows.Forms.TextBox();
             this.BtnCancelarCliente = new System.Windows.Forms.Button();
             this.btnRegistrarCliente = new System.Windows.Forms.Button();
             this.txtMail = new System.Windows.Forms.TextBox();
@@ -74,18 +73,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtDni = new System.Windows.Forms.TextBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dgvClientes = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAutos)).BeginInit();
             this.gpbAutos.SuspendLayout();
             this.gpbReserva.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tbcPrincipal.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.grbAuto.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.grbClinte.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
-            this.tabPage3.SuspendLayout();
-            this.grbClinte.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvAutos
@@ -101,18 +102,18 @@
             this.dgvAutos.ReadOnly = true;
             this.dgvAutos.RowHeadersVisible = false;
             this.dgvAutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAutos.Size = new System.Drawing.Size(550, 81);
+            this.dgvAutos.Size = new System.Drawing.Size(550, 112);
             this.dgvAutos.TabIndex = 1;
             // 
             // gpbAutos
             // 
             this.gpbAutos.Controls.Add(this.dgvAutos);
-            this.gpbAutos.Location = new System.Drawing.Point(6, 6);
+            this.gpbAutos.Location = new System.Drawing.Point(9, 19);
             this.gpbAutos.Name = "gpbAutos";
-            this.gpbAutos.Size = new System.Drawing.Size(562, 106);
+            this.gpbAutos.Size = new System.Drawing.Size(562, 137);
             this.gpbAutos.TabIndex = 2;
             this.gpbAutos.TabStop = false;
-            this.gpbAutos.Text = "Autos Disponibles";
+            this.gpbAutos.Text = "Seleccione un Auto";
             // 
             // gpbReserva
             // 
@@ -126,35 +127,45 @@
             this.gpbReserva.Controls.Add(this.label8);
             this.gpbReserva.Controls.Add(this.label7);
             this.gpbReserva.Controls.Add(this.label6);
-            this.gpbReserva.Location = new System.Drawing.Point(41, 287);
+            this.gpbReserva.Location = new System.Drawing.Point(9, 333);
             this.gpbReserva.Name = "gpbReserva";
-            this.gpbReserva.Size = new System.Drawing.Size(490, 148);
+            this.gpbReserva.Size = new System.Drawing.Size(550, 171);
             this.gpbReserva.TabIndex = 3;
             this.gpbReserva.TabStop = false;
             this.gpbReserva.Text = "Detalles de Reserva";
             // 
             // mtbImporte
             // 
-            this.mtbImporte.Location = new System.Drawing.Point(184, 104);
-            this.mtbImporte.Mask = "$";
+            this.mtbImporte.Location = new System.Drawing.Point(191, 105);
+            this.mtbImporte.Mask = "$99999999";
             this.mtbImporte.Name = "mtbImporte";
-            this.mtbImporte.Size = new System.Drawing.Size(144, 20);
+            this.mtbImporte.Size = new System.Drawing.Size(148, 20);
             this.mtbImporte.TabIndex = 7;
             // 
             // dtpReserva
             // 
             this.dtpReserva.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpReserva.Location = new System.Drawing.Point(128, 23);
+            this.dtpReserva.Location = new System.Drawing.Point(135, 24);
             this.dtpReserva.Name = "dtpReserva";
-            this.dtpReserva.Size = new System.Drawing.Size(200, 20);
+            this.dtpReserva.Size = new System.Drawing.Size(204, 20);
             this.dtpReserva.TabIndex = 11;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(422, 63);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(112, 23);
+            this.btnCancelar.TabIndex = 5;
+            this.btnCancelar.Text = "Cancelar Reserva";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // dtpDevolucion
             // 
             this.dtpDevolucion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDevolucion.Location = new System.Drawing.Point(128, 51);
+            this.dtpDevolucion.Location = new System.Drawing.Point(135, 52);
             this.dtpDevolucion.Name = "dtpDevolucion";
-            this.dtpDevolucion.Size = new System.Drawing.Size(200, 20);
+            this.dtpDevolucion.Size = new System.Drawing.Size(204, 20);
             this.dtpDevolucion.TabIndex = 7;
             // 
             // cmbSeguro
@@ -165,15 +176,25 @@
             "Total",
             "Contra Terceros",
             "No tiene"});
-            this.cmbSeguro.Location = new System.Drawing.Point(184, 77);
+            this.cmbSeguro.Location = new System.Drawing.Point(191, 78);
             this.cmbSeguro.Name = "cmbSeguro";
-            this.cmbSeguro.Size = new System.Drawing.Size(144, 21);
+            this.cmbSeguro.Size = new System.Drawing.Size(148, 21);
             this.cmbSeguro.TabIndex = 7;
+            // 
+            // btnCargarReserva
+            // 
+            this.btnCargarReserva.Location = new System.Drawing.Point(422, 25);
+            this.btnCargarReserva.Name = "btnCargarReserva";
+            this.btnCargarReserva.Size = new System.Drawing.Size(107, 23);
+            this.btnCargarReserva.TabIndex = 4;
+            this.btnCargarReserva.Text = "Cargar Reserva";
+            this.btnCargarReserva.UseVisualStyleBackColor = true;
+            this.btnCargarReserva.Click += new System.EventHandler(this.btnCargar_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(13, 111);
+            this.label9.Location = new System.Drawing.Point(20, 112);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(45, 13);
             this.label9.TabIndex = 3;
@@ -182,7 +203,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 81);
+            this.label8.Location = new System.Drawing.Point(20, 82);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(44, 13);
             this.label8.TabIndex = 2;
@@ -191,7 +212,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 57);
+            this.label7.Location = new System.Drawing.Point(20, 58);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(112, 13);
             this.label7.TabIndex = 1;
@@ -200,47 +221,27 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 29);
+            this.label6.Location = new System.Drawing.Point(20, 30);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(98, 13);
             this.label6.TabIndex = 0;
             this.label6.Text = "Fecha de Reserva:";
             // 
-            // btnCargarReserva
+            // tbcPrincipal
             // 
-            this.btnCargarReserva.Location = new System.Drawing.Point(374, 19);
-            this.btnCargarReserva.Name = "btnCargarReserva";
-            this.btnCargarReserva.Size = new System.Drawing.Size(103, 23);
-            this.btnCargarReserva.TabIndex = 4;
-            this.btnCargarReserva.Text = "Cargar Reserva";
-            this.btnCargarReserva.UseVisualStyleBackColor = true;
-            this.btnCargarReserva.Click += new System.EventHandler(this.btnCargar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(374, 57);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(108, 23);
-            this.btnCancelar.TabIndex = 5;
-            this.btnCancelar.Text = "Cancelar Reserva";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(240, 35);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(582, 551);
-            this.tabControl1.TabIndex = 6;
-            this.tabControl1.Tag = "";
+            this.tbcPrincipal.Controls.Add(this.tabPage1);
+            this.tbcPrincipal.Controls.Add(this.tabPage3);
+            this.tbcPrincipal.Controls.Add(this.tabPage2);
+            this.tbcPrincipal.Location = new System.Drawing.Point(240, 35);
+            this.tbcPrincipal.Name = "tbcPrincipal";
+            this.tbcPrincipal.SelectedIndex = 0;
+            this.tbcPrincipal.Size = new System.Drawing.Size(582, 551);
+            this.tbcPrincipal.TabIndex = 6;
+            this.tbcPrincipal.Tag = "";
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Controls.Add(this.grbAuto);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -249,28 +250,28 @@
             this.tabPage1.Text = "Registrar Auto";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // grbAuto
             // 
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.cmbEstado);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.RegistrarVehiculo);
-            this.groupBox1.Controls.Add(this.txtKilometraje);
-            this.groupBox1.Controls.Add(this.txtPatente);
-            this.groupBox1.Controls.Add(this.txtAño);
-            this.groupBox1.Controls.Add(this.txtModelo);
-            this.groupBox1.Controls.Add(this.txtMarca);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Location = new System.Drawing.Point(115, 107);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(378, 295);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Datos Vehiculo";
+            this.grbAuto.Controls.Add(this.label15);
+            this.grbAuto.Controls.Add(this.cmbEstado);
+            this.grbAuto.Controls.Add(this.button1);
+            this.grbAuto.Controls.Add(this.RegistrarVehiculo);
+            this.grbAuto.Controls.Add(this.txtKilometraje);
+            this.grbAuto.Controls.Add(this.txtPatente);
+            this.grbAuto.Controls.Add(this.txtAño);
+            this.grbAuto.Controls.Add(this.txtModelo);
+            this.grbAuto.Controls.Add(this.txtMarca);
+            this.grbAuto.Controls.Add(this.label10);
+            this.grbAuto.Controls.Add(this.label11);
+            this.grbAuto.Controls.Add(this.label12);
+            this.grbAuto.Controls.Add(this.label13);
+            this.grbAuto.Controls.Add(this.label14);
+            this.grbAuto.Location = new System.Drawing.Point(89, 91);
+            this.grbAuto.Name = "grbAuto";
+            this.grbAuto.Size = new System.Drawing.Size(378, 295);
+            this.grbAuto.TabIndex = 1;
+            this.grbAuto.TabStop = false;
+            this.grbAuto.Text = "Datos Vehiculo";
             // 
             // label15
             // 
@@ -396,45 +397,6 @@
             this.label14.TabIndex = 0;
             this.label14.Text = "Marca: ";
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.groupBox2);
-            this.tabPage2.Controls.Add(this.gpbAutos);
-            this.tabPage2.Controls.Add(this.gpbReserva);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(574, 525);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Registrar Reserva";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dgvClientes);
-            this.groupBox2.Location = new System.Drawing.Point(6, 139);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(562, 106);
-            this.groupBox2.TabIndex = 6;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Clientes ";
-            // 
-            // dgvClientes
-            // 
-            this.dgvClientes.AllowUserToAddRows = false;
-            this.dgvClientes.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvClientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientes.Location = new System.Drawing.Point(6, 19);
-            this.dgvClientes.MultiSelect = false;
-            this.dgvClientes.Name = "dgvClientes";
-            this.dgvClientes.ReadOnly = true;
-            this.dgvClientes.RowHeadersVisible = false;
-            this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClientes.Size = new System.Drawing.Size(550, 81);
-            this.dgvClientes.TabIndex = 1;
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.grbClinte);
@@ -460,12 +422,20 @@
             this.grbClinte.Controls.Add(this.label3);
             this.grbClinte.Controls.Add(this.label2);
             this.grbClinte.Controls.Add(this.label1);
-            this.grbClinte.Location = new System.Drawing.Point(103, 90);
+            this.grbClinte.Location = new System.Drawing.Point(56, 68);
             this.grbClinte.Name = "grbClinte";
-            this.grbClinte.Size = new System.Drawing.Size(398, 306);
+            this.grbClinte.Size = new System.Drawing.Size(440, 319);
             this.grbClinte.TabIndex = 1;
             this.grbClinte.TabStop = false;
             this.grbClinte.Text = "Datos Cliente";
+            // 
+            // txtDni
+            // 
+            this.txtDni.Location = new System.Drawing.Point(195, 75);
+            this.txtDni.Name = "txtDni";
+            this.txtDni.Size = new System.Drawing.Size(167, 20);
+            this.txtDni.TabIndex = 12;
+            this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
             // BtnCancelarCliente
             // 
@@ -561,37 +531,70 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre: ";
             // 
-            // txtDni
+            // tabPage2
             // 
-            this.txtDni.Location = new System.Drawing.Point(195, 75);
-            this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(167, 20);
-            this.txtDni.TabIndex = 12;
-            this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
+            this.tabPage2.Controls.Add(this.groupBox2);
+            this.tabPage2.Controls.Add(this.gpbAutos);
+            this.tabPage2.Controls.Add(this.gpbReserva);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(574, 525);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Registrar Reserva";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // frmPrincipal
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dgvClientes);
+            this.groupBox2.Location = new System.Drawing.Point(6, 172);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(562, 137);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Seleccione un Cliente";
+            // 
+            // dgvClientes
+            // 
+            this.dgvClientes.AllowUserToAddRows = false;
+            this.dgvClientes.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvClientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClientes.Location = new System.Drawing.Point(6, 13);
+            this.dgvClientes.MultiSelect = false;
+            this.dgvClientes.Name = "dgvClientes";
+            this.dgvClientes.ReadOnly = true;
+            this.dgvClientes.RowHeadersVisible = false;
+            this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvClientes.Size = new System.Drawing.Size(550, 118);
+            this.dgvClientes.TabIndex = 1;
+            // 
+            // Concesionaria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1252, 742);
-            this.Controls.Add(this.tabControl1);
-            this.Name = "frmPrincipal";
-            this.Text = "frmPrincipal";
+            this.Controls.Add(this.tbcPrincipal);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "Concesionaria";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Concesionaria";
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAutos)).EndInit();
             this.gpbAutos.ResumeLayout(false);
             this.gpbReserva.ResumeLayout(false);
             this.gpbReserva.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
+            this.tbcPrincipal.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
+            this.grbAuto.ResumeLayout(false);
+            this.grbAuto.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.grbClinte.ResumeLayout(false);
             this.grbClinte.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -606,10 +609,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tbcPrincipal;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grbAuto;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button RegistrarVehiculo;
         private System.Windows.Forms.TextBox txtKilometraje;
